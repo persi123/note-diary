@@ -1,0 +1,12 @@
+
+.containerNote{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Note{
+    width: 50%;
+  
+    border: 1px solid gray;
+    padding: 27px;
+}

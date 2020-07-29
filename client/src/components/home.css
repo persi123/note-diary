@@ -1,0 +1,27 @@
+.ant-input{
+    /* border: 1px solid blue; */
+     background-color: aliceblue;
+     color: -internal-light-dark-color(white);
+/* width: 50%; */
+margin-bottom: 20px;
+}
+/* .ant-btn{
+    width: 20%;
+} */
+
+.container{
+    width: 51%;
+    display: flex;
+    /* flex-direction: column; */
+    flex-flow: column;
+   
+    align-items: center;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.link{
+    margin-top: 20px;
+}
