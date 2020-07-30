@@ -36,14 +36,12 @@ export default function Home() {
     
            const data=await defaultAxios.post(`/api`,note).then(item => setid(item.data._id));
         }
-       
-       
     }
 
     useEffect(() => {
     if(id){
         let url=process.env.NODE_ENV === "production"? process.env.BASE_URL:"http://localhost:3000";
-     TinyUrl.shorten(`${url}/note/${id}`, function(res, err) {
+     TinyUrl.shorten(`/note/${id}`, function(res, err) {
         if (err)
             console.log(err)
         setlink(res); //Returns a shorter version of http://google.com - http://tinyurl.com/2tx
