@@ -30,7 +30,7 @@ export default function Home() {
         if(note.data){
             setloading(true);
             const defaultAxios = axios.create({
-                baseURL:"http://localhost:5000",
+                baseURL:process.env.NODE_ENV === "production"? process.env.BASE_URL:"http://localhost:5000",
                 /* other custom settings */
               });
     
