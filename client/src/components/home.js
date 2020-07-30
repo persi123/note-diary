@@ -30,7 +30,7 @@ export default function Home() {
         if(note.data){
             setloading(true);
             const defaultAxios = axios.create({
-                baseURL:process.env.NODE_ENV === "production"? process.env.BASE_URL:"http://localhost:5000",
+                baseURL:"http://localhost:5000",
                 /* other custom settings */
               });
     
@@ -42,7 +42,8 @@ export default function Home() {
 
     useEffect(() => {
     if(id){
-     TinyUrl.shorten(`http://localhost:3000/note/${id}`, function(res, err) {
+        let url=process.env.NODE_ENV === "production"? process.env.BASE_URL:"http://localhost:3000";
+     TinyUrl.shorten(`${url}/note/${id}`, function(res, err) {
         if (err)
             console.log(err)
         setlink(res); //Returns a shorter version of http://google.com - http://tinyurl.com/2tx
