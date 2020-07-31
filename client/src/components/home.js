@@ -60,7 +60,7 @@ export default function Home() {
         <Button shape="round" icon={<DownloadOutlined />} size="large" >
          <a onClick={GenerateLink}>  Generate Link</a> 
         </Button>
-   
+    <div>{id?id:"id ni h"}</div>
         <div className="link"><p>Your link will place here</p>
         {loading?<Loading/>: <a href={`${link}`} >{link}</a>}
         </div>
