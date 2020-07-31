@@ -61,7 +61,7 @@ export default function Home() {
          <a onClick={GenerateLink}>  Generate Link</a> 
         </Button>
         <div>
-            {process.env.NODE_ENV === "production"?process.env.BASE_URL:"kuch ni"}
+            {process.env.NODE_ENV === "production"? process.env.BASE_URL:"kuch ni"}
         </div>
     <div>{id?id:"id ni h"}</div>
         <div className="link"><p>Your link will place here</p>
