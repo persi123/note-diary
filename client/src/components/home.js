@@ -42,7 +42,7 @@ export default function Home() {
     useEffect(() => {
     if(id){
         let url=process.env.NODE_ENV === "production"? process.env.BASE_URL:"http://localhost:3000";
-     TinyUrl.shorten(`http://localhost:3000/note/${id}`, function(res, err) {
+     TinyUrl.shorten(`https://note-diary.herokuapp.com/note/${id}`, function(res, err) {
         if (err)
             console.log(err)
         setlink(res); //Returns a shorter version of http://google.com - http://tinyurl.com/2tx
@@ -67,7 +67,7 @@ export default function Home() {
         <div className="link"><p>Your link will place here</p>
         {loading?<Loading/>: <a href={`${link}`} >{link}</a>}
         </div>
-        <Link to="/demo">Demo</Link>
+        <Link to="/note/5f2393b6f28d233dd4f3cac3">Demo</Link>
         </div>
         </div>
     )
