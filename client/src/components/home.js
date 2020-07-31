@@ -9,6 +9,7 @@ import Shortener from "@studiohyperdrive/shortener"
 import shortUrl from "node-url-shortener";
 import "./home.css";
 import Loading from "./animation"
+import { Link } from 'react-router-dom';
 
 
 const { TextArea } = Input;
@@ -30,7 +31,7 @@ export default function Home() {
         if(note.data){
             setloading(true);
             const defaultAxios = axios.create({
-                baseURL:"http://localhost:5000",
+                baseURL:process.env.NODE_ENV === "production"? process.env.BASE_URL:"http://localhost:5000",
                 /* other custom settings */
               });
     
@@ -47,7 +48,7 @@ export default function Home() {
         setlink(res); //Returns a shorter version of http://google.com - http://tinyurl.com/2tx
         setloading(false)
     })}
-},[id])
+},[id]) 
 
     return (
         <div className="main">
@@ -63,6 +64,7 @@ export default function Home() {
         <div className="link"><p>Your link will place here</p>
         {loading?<Loading/>: <a href={`${link}`} >{link}</a>}
         </div>
+        <Link to="/demo">Demo</Link>
         </div>
         </div>
     )
