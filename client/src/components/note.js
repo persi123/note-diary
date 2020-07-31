@@ -4,12 +4,13 @@ import "./note.css";
 
 export default function Note(props) {
     console.log(props)
-    const defaultAxios = axios.create({
-       baseURL:process.env.NODE_ENV === "production"? process.env.BASE_URL:"http://localhost:5000",
-        /* other custom settings */
-      });
+  
     const [data, setdata] = useState("")
     useEffect(() => {
+      const defaultAxios = axios.create({
+        baseURL:"http://localhost:5000",
+         /* other custom settings */
+       });
        async function dataFetch (){
             const data= await defaultAxios.get(`/api${props.match.url}`).then(item => setdata(item.data[0].data));
         }
