@@ -42,7 +42,7 @@ export default function Home() {
     useEffect(() => {
     if(id){
         let url=process.env.NODE_ENV === "production"? process.env.BASE_URL:"http://localhost:3000";
-     TinyUrl.shorten(`${url}/note/${id}`, function(res, err) {
+     TinyUrl.shorten(`http://localhost:3000/note/${id}`, function(res, err) {
         if (err)
             console.log(err)
         setlink(res); //Returns a shorter version of http://google.com - http://tinyurl.com/2tx
@@ -60,6 +60,9 @@ export default function Home() {
         <Button shape="round" icon={<DownloadOutlined />} size="large" >
          <a onClick={GenerateLink}>  Generate Link</a> 
         </Button>
+        <div>
+            {process.env.NODE_ENV === "production"?process.env.BASE_URL:"kuch ni"}
+        </div>
     <div>{id?id:"id ni h"}</div>
         <div className="link"><p>Your link will place here</p>
         {loading?<Loading/>: <a href={`${link}`} >{link}</a>}
